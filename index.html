@@ -1,123 +1,182 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Καλά Χριστούγεννα</title>
 
-        /* Το δοχείο της κάρτας */
-        .holiday-container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: linear-gradient(135deg, #8B0000 0%, #4d0000 100%);
-            border: 4px solid #D4AF37;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden; /* Κλειδώνει το χιόνι μέσα στην κάρτα */
-            text-align: center;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
-            padding: 60px 20px;
-        }
+  <!-- Social preview (προαιρετικό αλλά χρήσιμο) -->
+  <meta property="og:title" content="Καλά Χριστούγεννα" />
+  <meta property="og:description" content="Με εκτίμηση και θερμές ευχές για το 2025." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cheery-paletas-e86411.netlify.app/" />
+  <!-- Βάλε og.png στον ίδιο φάκελο με το index.html για να δουλέψει το preview -->
+  <meta property="og:image" content="https://cheery-paletas-e86411.netlify.app/og.png" />
 
-        /* Δημιουργία χιονιού με CSS Gradients */
-        .snow-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                radial-gradient(4px 4px at 20px 30px, #fff, rgba(0,0,0,0)),
-                radial-gradient(5px 5px at 100px 150px, #fff, rgba(0,0,0,0)),
-                radial-gradient(3px 3px at 200px 280px, #fff, rgba(0,0,0,0)),
-                radial-gradient(6px 6px at 350px 80px, #fff, rgba(0,0,0,0)),
-                radial-gradient(4px 4px at 450px 320px, #fff, rgba(0,0,0,0)),
-                radial-gradient(5px 5px at 550px 180px, #fff, rgba(0,0,0,0));
-            background-size: 600px 600px;
-            animation: snowFall 12s linear infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
+  <style>
+    :root{
+      --bg: #1a1a1a;
+      --gold: #D4AF37;
+      --red1: #8B0000;
+      --red2: #4d0000;
+      --white: #ffffff;
+    }
 
-        /* Η κίνηση του χιονιού */
-        @keyframes snowFall {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 600px; }
-        }
+    * { box-sizing: border-box; }
 
-        /* Περιεχόμενο πάνω από το χιόνι */
-        .content {
-            position: relative;
-            z-index: 2;
-            color: #ffffff;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
 
-        .main-title {
-            color: #D4AF37;
-            font-size: 38px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-        }
+    /* Wrapper για καλύτερο spacing σε κινητά */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 24px 14px 40px;
+    }
 
-        .wish-text {
-            font-size: 21px;
-            line-height: 1.8;
-            font-weight: 300;
-            margin: 0 auto;
-            max-width: 450px;
-        }
+    /* Το δοχείο της κάρτας */
+    .holiday-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 16px auto;
+      background: linear-gradient(135deg, var(--red1) 0%, var(--red2) 100%);
+      border: 4px solid var(--gold);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden; /* Κλειδώνει το χιόνι μέσα στην κάρτα */
+      text-align: center;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+      padding: 56px 18px;
+    }
 
-        .decoration {
-            font-size: 50px;
-            margin: 20px 0;
-            display: inline-block;
-        }
+    /* Δημιουργία χιονιού με CSS Gradients */
+    .snow-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(4px 4px at 20px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(5px 5px at 100px 150px, #fff, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 200px 280px, #fff, rgba(0,0,0,0)),
+        radial-gradient(6px 6px at 350px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(4px 4px at 450px 320px, #fff, rgba(0,0,0,0)),
+        radial-gradient(5px 5px at 550px 180px, #fff, rgba(0,0,0,0));
+      background-size: 600px 600px;
+      animation: snowFall 12s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
 
-        .gold-line {
-            height: 2px;
-            width: 80px;
-            background-color: #D4AF37;
-            margin: 20px auto;
-        }
+    /* Η κίνηση του χιονιού */
+    @keyframes snowFall {
+      0%   { background-position: 0 0; }
+      100% { background-position: 0 600px; }
+    }
 
-        .footer-note {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #D4AF37;
-            letter-spacing: 1px;
-        }
-    </style>
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .snow-overlay { animation: none; }
+    }
+
+    /* Περιεχόμενο πάνω από το χιόνι */
+    .content {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+    }
+
+    .main-title {
+      color: var(--gold);
+      font-size: 38px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 10px 0 18px;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+      line-height: 1.1;
+    }
+
+    .wish-text {
+      font-size: 20px;
+      line-height: 1.8;
+      font-weight: 300;
+      margin: 0 auto;
+      max-width: 470px;
+      padding: 0 6px;
+    }
+
+    .decoration {
+      font-size: 52px;
+      margin: 6px 0 8px;
+      display: inline-block;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+    }
+
+    .gold-line {
+      height: 2px;
+      width: 92px;
+      background-color: var(--gold);
+      margin: 18px auto;
+      opacity: 0.95;
+    }
+
+    .footer-note {
+      margin-top: 34px;
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .tiny-decoration {
+      font-size: 30px;
+      margin-top: 10px;
+    }
+
+    /* Mobile tuning */
+    @media (max-width: 420px) {
+      .holiday-container { padding: 46px 14px; border-width: 3px; }
+      .main-title { font-size: 30px; letter-spacing: 2px; }
+      .wish-text { font-size: 18px; }
+      .decoration { font-size: 46px; }
+    }
+  </style>
 </head>
+
 <body>
-
+  <div class="page">
     <div class="holiday-container">
-        <div class="snow-overlay"></div>
+      <div class="snow-overlay" aria-hidden="true"></div>
 
-        <div class="content">
-            <div class="decoration">🎄</div>
-            <h1 class="main-title">Καλά Χριστούγεννα</h1>
-            
-            <div class="gold-line"></div>
-            
-            <p class="wish-text">
-                Σας εύχομαι ολόψυχα Kαλά Χριστούγεννα και Καλές Γιορτές. <br><br>
-                Η αναβίωση της Θείας Γέννησης ας φέρει Νέες Ελπίδες και Προοπτική. <br><br>
-                <strong>Χρόνια πολλά και Δημιουργικά!</strong>
-            </p>
-            
-            <div class="gold-line"></div>
-            
-            <div class="footer-note">
-                Θερμές ευχές Πάνος Ζαρογουλίδης
-            </div>
-            <div class="decoration" style="font-size: 30px;">🎁 ✨</div>
+      <div class="content">
+        <div class="decoration" aria-hidden="true">🎄</div>
+
+        <h1 class="main-title">Καλά Χριστούγεννα</h1>
+
+        <div class="gold-line" aria-hidden="true"></div>
+
+        <p class="wish-text">
+          Σας εύχομαι ολόψυχα καλά Χριστούγεννα και ένα ευτυχισμένο νέο έτος.
+          <br><br>
+          Η γέννηση του Θεανθρώπου ας φέρει μαζί της νέες ελπίδες και προοπτικές.
+          <br><br>
+          <strong>Χρόνια πολλά και δημιουργικά!</strong>
+        </p>
+
+        <div class="gold-line" aria-hidden="true"></div>
+
+        <div class="footer-note">
+          Με εκτίμηση και θερμές ευχές για το 2025
         </div>
-    </div>
 
+        <div class="tiny-decoration" aria-hidden="true">🎁 ✨</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
